@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Завантаження даних з файлів</title>
+</head>
+<body>
+  <a href="#" id="мови">Мови</a>
+  <a href="#" id="студенти">Студенти</a>
+  <div id="контент"></div>
+
+  <script>
+    const мовиПосилання = document.getElementById('мови');
+    const студентиПосилання = document.getElementById('студенти');
+    const контент = document.getElementById('контент');
+
+    мовиПосилання.addEventListener('click', завантажитиМови);
+    студентиПосилання.addEventListener('click', завантажитиСтудентів);
+
+    function завантажитиМови() {
+      fetch('1.txt')
+        .then(response => response.text())
+        .then(text => {
+          контент.innerHTML = `<pre style="background-color: yellow;">${text}</pre>`;
+        })
+        .catch(error => console.error('Помилка завантаження:', error));
+    }
+
+    function завантажитиСтудентів() {
+      fetch('txt')
+        .then(response => response.text())
+        .then(text => {
+          контент.innerHTML = `<pre style="background-color: yellow;">${text}</pre>`;
+        })
+        .catch(error => console.error('Помилка завантаження:', error));
+    }
+  </script>
+</body>
+</html>
